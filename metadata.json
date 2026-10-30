@@ -1,0 +1,6 @@
+{
+  "name": "LA FIT GYM – Kothrud, Pune",
+  "description": "Premium gym website replication for La Fit Gym Kothrud Pune with modern aesthetic, membership details, equipment showcase, Google reviews, and contact options.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

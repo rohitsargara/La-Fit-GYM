@@ -1,0 +1,377 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #fffdf6;
+  --tint: #fff3d1;
+  --tint-2: #fff9e8;
+  --surface: #ffffff;
+  --line: #ece3c8;
+  --gold: #f2b705;
+  --gold-light: #ffe07a;
+  --gold-deep: #d99a00;
+  --ink: #17140f;
+  --ink-soft: #3a352b;
+  --muted: #6f6955;
+  --font-display: "Archivo", "Arial Black", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--gold-light);
+  padding: 0.6rem 1rem;
+  z-index: 300;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-stretch: 118%;
+}
+
+.font-mono-tag {
+  font-family: var(--font-mono);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Typography tokens matching antimatterfit */
+.display, h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+
+.display, h1 {
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  color: var(--ink);
+}
+
+h2 {
+  font-size: clamp(1.85rem, 3.8vw, 2.9rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 3px;
+  background: var(--gold);
+  display: inline-block;
+  border-radius: 1px;
+}
+
+.hl {
+  background: linear-gradient(transparent 62%, var(--gold) 62%, var(--gold) 92%, transparent 92%);
+  padding: 0 0.08em;
+  display: inline;
+}
+
+/* Button styles */
+.btn {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.9rem 1.65rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s, background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--ink);
+  box-shadow: 0 12px 28px -12px rgba(242, 183, 5, 0.85);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: var(--gold-light);
+}
+
+.btn-ghost {
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--gold-light);
+}
+
+.btn-dark {
+  background: var(--ink);
+  color: var(--gold-light);
+}
+
+.btn-dark:hover {
+  transform: translateY(-2px);
+  background: var(--ink-soft);
+  color: #ffffff;
+}
+
+/* Hero media signature gold offset shadow */
+.hero-media {
+  position: relative;
+}
+
+.hero-media::before {
+  content: "";
+  position: absolute;
+  inset: 16px -16px -16px 16px;
+  background: var(--gold);
+  border-radius: var(--radius);
+  z-index: 0;
+}
+
+.hero-media .media-inner {
+  position: relative;
+  z-index: 1;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #17140f;
+}
+
+/* Floating Hero Badges */
+.badge {
+  position: absolute;
+  z-index: 10;
+  border-radius: 14px;
+  padding: 0.75rem 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 0 16px 30px -14px rgba(23, 20, 15, 0.5);
+}
+
+.badge b {
+  display: block;
+  font-family: var(--font-display);
+  font-stretch: 118%;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+.badge-dark {
+  background: var(--ink);
+  color: #ded7c4;
+}
+
+.badge-dark b {
+  color: var(--gold);
+}
+
+.badge-light {
+  background: var(--surface);
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+}
+
+.badge-light b {
+  color: var(--ink);
+}
+
+/* Marquee continuous slide ticker */
+.marquee {
+  background: var(--gold);
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 2.5rem;
+  padding: 0.95rem 0;
+  animation: marqueeSlide 30s linear infinite;
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.marquee-track span::after {
+  content: "✦";
+  margin-left: 2.5rem;
+  color: var(--ink-soft);
+}
+
+@keyframes marqueeSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Section styling */
+section {
+  padding: 5.5rem 0;
+  position: relative;
+}
+
+.section-tint {
+  background: var(--tint-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Neo-brutalist / Antimatter style interactive cards */
+.interactive-card {
+  background: var(--surface);
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s, background 0.25s;
+}
+
+.interactive-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--gold);
+}
+
+/* Service program cards */
+.svc-card {
+  position: relative;
+  background: var(--surface);
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s, background 0.25s;
+}
+
+.svc-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--gold);
+  background: var(--tint-2);
+}
+
+.svc-card .num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--gold-deep);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+/* Plan card featured */
+.plan-featured {
+  background: var(--ink);
+  color: #ffffff;
+  position: relative;
+}
+
+.plan-featured .dur-text {
+  color: var(--gold);
+}
+
+.plan-badge {
+  position: absolute;
+  top: -0.85rem;
+  right: 1.2rem;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
